@@ -52,7 +52,7 @@ export default class Weather {
             });
     }
     async getCloudHero() {
-        const hero = `https://gateway.marvel.com/v1/public/characters?name=Abigail%20Boylen&apikey=${this.apiKey2}`;
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Cloud%209&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {

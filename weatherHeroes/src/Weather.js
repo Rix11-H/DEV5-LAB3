@@ -42,8 +42,8 @@ export default class Weather {
             });
     }
 
-    async getHero1() {
-        const hero = `https://gateway.marvel.com/v1/public/characters?name=Iron%20Man&apikey=${this.apiKey2}`;
+    async getSunHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Human%20Torch&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
@@ -51,8 +51,8 @@ export default class Weather {
                 this.displayHero(herodata);
             });
     }
-    async getHero2() {
-        const hero = `https://gateway.marvel.com/v1/public/characters?name=Absorbing%20Man&apikey=${this.apiKey2}`;
+    async getCloudHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Abigail%20Boylen&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
@@ -69,6 +69,15 @@ export default class Weather {
         const weather = data.current.condition.text;
         document.querySelector('.weather__summary').innerHTML = weather;
         
+        //const code = data.current.condition.code;
+        const code = 1009;
+        if(code === 1000) {
+            this.getSunHero();
+        }
+        
+        if((code === 1003) || (code === 1006) || (code === 1009)) {
+            this.getCloudHero();
+        }
 
         const icon = data.current.condition.icon;
         const img = document.createElement('img');

@@ -46,8 +46,8 @@ export default class Weather {
         const hero = `http://gateway.marvel.com/v1/public/characters?apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
+            .then((herodata) => {
+                console.log(herodata);
             });
     }
 
@@ -62,6 +62,13 @@ export default class Weather {
         const img = document.createElement('img');
         img.src = icon;
         document.querySelector('.weather__icon').appendChild(img);
+    }
+    
+    displayHero() {
+        const hero = data.current.character.name;
+        const img = document.createElement('p');
+        img.src = hero;
+        document.querySelector('.hero').appendChild(img);
     }
 
 } 

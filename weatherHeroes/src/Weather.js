@@ -60,7 +60,7 @@ export default class Weather {
     }
 
     async getSnowHero() {
-        const hero = `https://gateway.marvel.com/v1/public/characters?name=Luna%20Snow&apikey=${this.apiKey2}`;
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Snowbird&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {

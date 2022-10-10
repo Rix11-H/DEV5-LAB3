@@ -69,7 +69,7 @@ export default class Weather {
     }
 
     async getMistHero() {
-        const hero = `https://gateway.marvel.com/v1/public/characters?name=Alter%20Ego&apikey=${this.apiKey2}`;
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Vision&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
@@ -105,7 +105,7 @@ export default class Weather {
         document.querySelector('.weather__summary').innerHTML = weather;
         
         //const code = data.current.condition.code;
-        const code = 1213;
+        const code = 1135;
         if(code === 1000) {
             this.getSunHero();
         }
@@ -126,8 +126,9 @@ export default class Weather {
             this.getSnowHero();
         }
 
-
-
+        if((code === 1063) || (code === 1180) || (code === 1183) || (code === 1189) || (code === 1195) ||  (code === 1240) || (code === 1243) || (code === 1246) || (code === 1253)) {
+            this.getRainHero();
+        }
 
         const icon = data.current.condition.icon;
         const img = document.createElement('img');

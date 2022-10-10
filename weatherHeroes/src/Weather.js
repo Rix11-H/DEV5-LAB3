@@ -104,8 +104,7 @@ export default class Weather {
         const weather = data.current.condition.text;
         document.querySelector('.weather__summary').innerHTML = weather;
         
-        //const code = data.current.condition.code;
-        const code = 1135;
+        const code = data.current.condition.code;
         if(code === 1000) {
             this.getSunHero();
         }

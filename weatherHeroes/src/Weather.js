@@ -11,7 +11,7 @@ export default class Weather {
             this.getLocation();
         }
 
-        this.getEvent();
+
 
     }
 
@@ -20,7 +20,7 @@ export default class Weather {
         // Get location from browser
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.getWeather.bind(this));
-            navigator.geolocation.getCurrentPosition(this.getEvent.bind(this));
+            navigator.geolocation.getCurrentPosition(this.getHero.bind(this));
             } else {
                 alert('Geolocation is not supported by this browser.');
         }
@@ -42,14 +42,25 @@ export default class Weather {
             });
     }
 
-    async getEvent() {
-        const hero = `http://gateway.marvel.com/v1/public/characters?apikey=${this.apiKey2}`;
+    async getHero1() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Iron%20Man&apikey=${this.apiKey2}`;
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
                 console.log(herodata);
+                this.displayHero(herodata);
             });
     }
+    async getHero2() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Absorbing%20Man&apikey=${this.apiKey2}`;
+        fetch(hero) 
+            .then((response) => response.json())
+            .then((herodata) => {
+                console.log(herodata);
+                this.displayHero(herodata);
+            });
+    }
+
 
     displayWeather(data) {
         const temp = data.current.temp_c;
@@ -57,6 +68,7 @@ export default class Weather {
 
         const weather = data.current.condition.text;
         document.querySelector('.weather__summary').innerHTML = weather;
+        
 
         const icon = data.current.condition.icon;
         const img = document.createElement('img');
@@ -64,9 +76,9 @@ export default class Weather {
         document.querySelector('.weather__icon').appendChild(img);
     }
     
-    displayHero() {
-        const hero = data.current.character.name;
-        const img = document.createElement('p');
+    displayHero(data) {
+        const hero = data.data.results[0].thumbnail.path + "." + data.data.results[0].thumbnail.extension;
+        const img = document.createElement('img');
         img.src = hero;
         document.querySelector('.hero').appendChild(img);
     }

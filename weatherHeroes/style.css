@@ -42,3 +42,12 @@ body {
   border-radius: 24px;
   text-align: center;
 }
+
+.hero {
+  max-width: 100%;
+  margin-top: 50px;
+}
+
+.hero img {
+  max-width: 100%;
+}

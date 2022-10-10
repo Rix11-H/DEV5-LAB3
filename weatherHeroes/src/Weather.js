@@ -47,7 +47,6 @@ export default class Weather {
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
-                console.log(herodata);
                 this.displayHero(herodata);
             });
     }
@@ -56,10 +55,46 @@ export default class Weather {
         fetch(hero) 
             .then((response) => response.json())
             .then((herodata) => {
-                console.log(herodata);
                 this.displayHero(herodata);
             });
     }
+
+    async getSnowHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Luna%20Snow&apikey=${this.apiKey2}`;
+        fetch(hero) 
+            .then((response) => response.json())
+            .then((herodata) => {
+                this.displayHero(herodata);
+            });
+    }
+
+    async getMistHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Alter%20Ego&apikey=${this.apiKey2}`;
+        fetch(hero) 
+            .then((response) => response.json())
+            .then((herodata) => {
+                this.displayHero(herodata);
+            });
+    }
+
+    async getStormHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Thor&apikey=${this.apiKey2}`;
+        fetch(hero) 
+            .then((response) => response.json())
+            .then((herodata) => {
+                this.displayHero(herodata);
+            });
+    }
+
+    async getRainHero() {
+        const hero = `https://gateway.marvel.com/v1/public/characters?name=Hydro-Man&apikey=${this.apiKey2}`;
+        fetch(hero) 
+            .then((response) => response.json())
+            .then((herodata) => {
+                this.displayHero(herodata);
+            });
+    }
+
 
 
     displayWeather(data) {
@@ -70,7 +105,7 @@ export default class Weather {
         document.querySelector('.weather__summary').innerHTML = weather;
         
         //const code = data.current.condition.code;
-        const code = 1009;
+        const code = 1213;
         if(code === 1000) {
             this.getSunHero();
         }
@@ -78,6 +113,21 @@ export default class Weather {
         if((code === 1003) || (code === 1006) || (code === 1009)) {
             this.getCloudHero();
         }
+
+        if((code === 1030) || (code === 1135) || (code === 1147)) {
+            this.getMistHero();
+        }
+
+        if((code === 1087) || (code === 1273) || (code === 1276) || (code === 1279) || (code === 1282)) {
+            this.getStormHero();
+        }
+
+        if((code === 1114) || (code === 1255) || (code === 1117) || (code === 1258) || (code === 1237) ||  (code === 1213) || (code === 1219) || (code === 1225)) {
+            this.getSnowHero();
+        }
+
+
+
 
         const icon = data.current.condition.icon;
         const img = document.createElement('img');

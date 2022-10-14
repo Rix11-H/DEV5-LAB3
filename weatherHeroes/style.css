@@ -11,7 +11,7 @@
 body {
   background-color: #131313;
   color: #fbfbfb;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   margin: 0;
@@ -38,16 +38,76 @@ body {
   width: 200px;
   height: 400px;
   border: 6px solid #fbfbfb;
-  background-color: rgb(29, 29, 29);
+  background-color: #EC1D24;
   border-radius: 24px;
   text-align: center;
 }
 
-.hero {
-  max-width: 100%;
-  margin-top: 50px;
+.marvel__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: top;
+  margin: 0 auto;
 }
 
-.hero img {
+.marvel__header__logo {
+  width: 60px;
+  margin: 0 auto;
+}
+
+.marvel__header__tagline {
+  font-size: .5em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.weather {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: space-around;
+}
+
+.weather__left, .weather__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather__summary {
+  margin-top: -8px;
+}
+
+.weather__temp {
+  font-size: 1.6em;
+}
+
+.hero__announcement {
+  margin: 8px 0 4px 0;
+}
+
+.hero__image {
   max-width: 100%;
+}
+
+.hero__image img {
+  max-width: 100%;
+}
+
+.hero__link {
+  color: #fbfbfb;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid #fbfbfb;
+  background-color: transparent;
+  border-left: 1px solid #fbfbfb;
+  border-right: 1px solid #fbfbfb;
+  color: #fbfbfb;
+  text-align: center;
+  line-height: 16px;
+  padding: 8px 0;
 }

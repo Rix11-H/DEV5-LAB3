@@ -2,17 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="public/M_shortlogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather app</title>
+    <title>Marvel Weather Heroes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body>
     <div id="app">
       <div class="camera"></div>
-      <div class="weather__icon"></div>
-      <h1 class="weather__summary"></h1>
-      <p class="weather__temp"></p>
-      <div class="hero"></div>
+
+      <div class="marvel__header">
+        <img class="marvel__header__logo" src="public/M_longlogo.png" alt="Marvel Logo">
+        <span class="marvel__header__tagline">Weather Heroes</span>
+      </div>
+      <div class="weather">
+        <div class="weather__left">
+          <div class="weather__icon"></div>
+        </div>
+        <div class="weather__right">
+          <p class="weather__temp"></p>    
+          <h1 class="weather__summary"></h1>
+        </div>
+      </div>
+      <p class="hero__announcement"></p>
+      <div class="hero__image"></div>
+      <a href="#" target="_blank" class="hero__link">Meet this hero</a>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

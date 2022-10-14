@@ -56,6 +56,7 @@ export default class Weather {
             .then((response) => response.json())
             .then((herodata) => {
                 this.displayHero(herodata);
+                console.log(herodata);
             });
     }
 
@@ -138,8 +139,11 @@ export default class Weather {
     displayHero(data) {
         const hero = data.data.results[0].thumbnail.path + "." + data.data.results[0].thumbnail.extension;
         const img = document.createElement('img');
+        const link = data.data.results[0].urls[2].url;
         img.src = hero;
-        document.querySelector('.hero').appendChild(img);
+        document.querySelector('.hero__image').appendChild(img);
+        document.querySelector(".hero__announcement").innerHTML = "Ideal weather for: "
+        document.querySelector(".hero__link").href = link;
     }
 
 } 
